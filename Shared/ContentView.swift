@@ -69,10 +69,14 @@ struct ContentView: View {
     
     func startRecognition() {
         let audioSession = AVAudioSession.sharedInstance()
-        try? audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
+        try? audioSession.setCategory(.playAndRecord, mode: .measurement, options: .duckOthers)
         try? audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         
         let inputNode = audioEngine.inputNode
+        // Check if there's an existing tap and remove it
+        if inputNode.numberOfInputs > 0 {
+            inputNode.removeTap(onBus: 0)
+        }
         request = SFSpeechAudioBufferRecognitionRequest()
         request.shouldReportPartialResults = true
         
@@ -188,7 +192,12 @@ struct ContentView: View {
     }
     func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        if let siriVoice4 = AVSpeechSynthesisVoice(identifier: "com.apple.ttsbundle.SiriFemale-compact") {
+            utterance.voice = siriVoice4
+        } else {
+            // Fallback to the default voice if the specified language is not available
+            utterance.voice = AVSpeechSynthesisVoice(language: "en")
+        }
         synthesizer.speak(utterance)
     }
     func requestSpeechRecognitionAuthorization() {
