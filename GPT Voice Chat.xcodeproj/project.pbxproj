@@ -81,6 +81,7 @@
 		3E87A59B29E2C3C00064056E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E87A59E29E2C3C00064056E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3E87A5A029E2C3C00064056E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E87A5AC29E2CBA60064056E /* GPT-Voice-Chat--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GPT-Voice-Chat--iOS--Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +112,7 @@
 		3E7C4F6229E2824F00546002 = {
 			isa = PBXGroup;
 			children = (
+				3E87A5AC29E2CBA60064056E /* GPT-Voice-Chat--iOS--Info.plist */,
 				3E7C4F6729E2824F00546002 /* Shared */,
 				3E7C4F7629E2825000546002 /* macOS */,
 				3E87A58929E2C3BE0064056E /* GPT Voice Chat */,
@@ -495,6 +497,7 @@
 				DEVELOPMENT_TEAM = 2DPRKN4D95;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "GPT-Voice-Chat--iOS--Info.plist";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires access to the microphone for speech recognition to interact with the GPT chatbot.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "This app requires access to speech recognition to allow you to interact with the GPT chatbot via voice.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -527,6 +530,7 @@
 				DEVELOPMENT_TEAM = 2DPRKN4D95;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "GPT-Voice-Chat--iOS--Info.plist";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires access to the microphone for speech recognition to interact with the GPT chatbot.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "This app requires access to speech recognition to allow you to interact with the GPT chatbot via voice.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
