@@ -27,7 +27,7 @@ struct ContentView: View {
     @State private var conversationHistory: [[String: Any]] = [
         ["role": "system", "content": "You are a helpful assistant accessed via a voice interface from Apple devices. Your responses will be read aloud to the user. Please keep your responses brief. If you have a long response, ask the user if they want you to continue. If the user’s input doesn’t quite make sense, it might have been dictated incorrectly: feel free to guess what they really said."]
     ]
-
+    @State private var realTimeRecognizedText: String = ""
 
 
     var body: some View {
@@ -36,14 +36,47 @@ struct ContentView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
 
-            Text("Recognized Text:")
+            Text("Conversation History:")
                 .font(.headline)
             
-            ScrollView {
-                Text(recognizedText)
+            ScrollViewReader { scrollViewProxy in
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 8) {
+                        ForEach(conversationHistory.indices, id: \.self) { index in
+                            if index > 0 { // Hide the system message at the start
+                                let message = conversationHistory[index]
+                                let role = message["role"] as? String ?? ""
+                                let content = message["content"] as? String ?? ""
+
+                                if role == "user" {
+                                    Text("User: \(content)")
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.blue)
+                                } else if role == "assistant" {
+                                    Text("Assistant: \(content)")
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.green)
+                                } else {
+                                    Text(content)
+                                }
+                            }
+                        }
+                        // Display the real-time recognized text
+                        if !realTimeRecognizedText.isEmpty {
+                            Text("User: \(realTimeRecognizedText)")
+                                .fontWeight(.bold)
+                                .foregroundColor(.blue)
+                        }
+                    }
                     .padding()
+                    .onChange(of: conversationHistory.count) { _ in
+                        withAnimation {
+                            scrollViewProxy.scrollTo(conversationHistory.count - 1, anchor: .bottom)
+                        }
+                    }
+                }
             }
-            
+
             HStack {
                 Button(action: {
                     if isListening {
@@ -92,6 +125,7 @@ struct ContentView: View {
             if let result = result {
                 DispatchQueue.main.async {
                     self.recognizedText = result.bestTranscription.formattedString
+                    self.realTimeRecognizedText = result.bestTranscription.formattedString
                     print("Recognized text: \(self.recognizedText)") // Debug print statement 1
                     // Stop the assistant's speech when user speech is detected
                     if self.synthesizer.isSpeaking {
