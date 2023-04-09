@@ -8,6 +8,56 @@ import SwiftUI
 import Speech
 import Combine
 import AVFoundation
+import WatchConnectivity
+
+class WatchSessionManager: NSObject, WCSessionDelegate {
+    @Published var recognizedText: String = ""
+    static let shared = WatchSessionManager()
+    private override init() {
+        super.init()
+    }
+
+    func startSession() {
+        if WCSession.default.isReachable {
+            WCSession.default.delegate = self
+            WCSession.default.activate()
+        }
+    }
+
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        if let error = error {
+            print("WCSession activation failed with error: \(error.localizedDescription)")
+            return
+        }
+        print("WCSession activated with state: \(activationState.rawValue)")
+    }
+
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        print("WCSession did become inactive")
+    }
+
+    func sessionDidDeactivate(_ session: WCSession) {
+        print("WCSession did deactivate")
+        // Reactivate the session after it is deactivated
+        session.activate()
+    }
+
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
+        processWatchMessage(message)
+        replyHandler(["recognizedText": self.recognizedText])
+    }
+
+    func processWatchMessage(_ message: [String: Any]) {
+        // Implementation
+    }
+
+    func setupWatchConnectivity() {
+        if WCSession.default.activationState == .notActivated {
+            WCSession.default.delegate = self
+            WCSession.default.activate()
+        }
+    }
+}
 
 
 struct ContentView: View {
@@ -108,7 +158,7 @@ struct ContentView: View {
                 startRecognition()
                 isListening = true
             }
-
+            WatchSessionManager.shared.setupWatchConnectivity()
         }
         .padding()
     }
@@ -262,6 +312,22 @@ struct ContentView: View {
                 print("Speech recognition not available.")
             @unknown default:
                 print("Unknown authorization status.")
+            }
+        }
+    }
+
+    func processWatchMessage(_ message: [String: Any]) {
+        if let command = message["command"] as? String {
+            if command == "startRecognition" {
+                if !isListening {
+                    startRecognition()
+                    isListening = true
+                }
+            } else if command == "stopRecognition" {
+                if isListening {
+                    stopRecognition()
+                    isListening = false
+                }
             }
         }
     }

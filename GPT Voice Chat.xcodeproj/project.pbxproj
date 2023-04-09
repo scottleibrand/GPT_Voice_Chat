@@ -13,7 +13,57 @@
 		3E7C4F7B29E2825000546002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7C4F6929E2824F00546002 /* ContentView.swift */; };
 		3E7C4F7C29E2825000546002 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E7C4F6A29E2825000546002 /* Assets.xcassets */; };
 		3E7C4F7D29E2825000546002 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E7C4F6A29E2825000546002 /* Assets.xcassets */; };
+		3E87A58B29E2C3BF0064056E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E87A58A29E2C3BF0064056E /* Assets.xcassets */; };
+		3E87A59129E2C3BF0064056E /* GPT Voice Chat WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3E87A59029E2C3BF0064056E /* GPT Voice Chat WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3E87A59629E2C3BF0064056E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87A59529E2C3BF0064056E /* ContentView.swift */; };
+		3E87A59829E2C3BF0064056E /* GPT_Voice_ChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87A59729E2C3BF0064056E /* GPT_Voice_ChatApp.swift */; };
+		3E87A59A29E2C3BF0064056E /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87A59929E2C3BF0064056E /* ComplicationController.swift */; };
+		3E87A59C29E2C3C00064056E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E87A59B29E2C3C00064056E /* Assets.xcassets */; };
+		3E87A59F29E2C3C00064056E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E87A59E29E2C3C00064056E /* Preview Assets.xcassets */; };
+		3E87A5A329E2C3C00064056E /* GPT Voice Chat.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3E87A58829E2C3BE0064056E /* GPT Voice Chat.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3E87A59229E2C3BF0064056E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E7C4F6329E2824F00546002 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E87A58F29E2C3BF0064056E;
+			remoteInfo = "GPT Voice Chat WatchKit Extension";
+		};
+		3E87A5A129E2C3C00064056E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E7C4F6329E2824F00546002 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E87A58729E2C3BE0064056E;
+			remoteInfo = "GPT Voice Chat";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3E87A5A729E2C3C00064056E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3E87A59129E2C3BF0064056E /* GPT Voice Chat WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E87A5AB29E2C3C00064056E /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				3E87A5A329E2C3C00064056E /* GPT Voice Chat.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3E7C4F6829E2824F00546002 /* GPT_Voice_ChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPT_Voice_ChatApp.swift; sourceTree = "<group>"; };
@@ -22,6 +72,15 @@
 		3E7C4F6F29E2825000546002 /* GPT Voice Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GPT Voice Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E7C4F7529E2825000546002 /* GPT Voice Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GPT Voice Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E7C4F7729E2825000546002 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		3E87A58829E2C3BE0064056E /* GPT Voice Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GPT Voice Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E87A58A29E2C3BF0064056E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3E87A59029E2C3BF0064056E /* GPT Voice Chat WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "GPT Voice Chat WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E87A59529E2C3BF0064056E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3E87A59729E2C3BF0064056E /* GPT_Voice_ChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPT_Voice_ChatApp.swift; sourceTree = "<group>"; };
+		3E87A59929E2C3BF0064056E /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		3E87A59B29E2C3C00064056E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3E87A59E29E2C3C00064056E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3E87A5A029E2C3C00064056E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +98,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3E87A58D29E2C3BF0064056E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -47,6 +113,8 @@
 			children = (
 				3E7C4F6729E2824F00546002 /* Shared */,
 				3E7C4F7629E2825000546002 /* macOS */,
+				3E87A58929E2C3BE0064056E /* GPT Voice Chat */,
+				3E87A59429E2C3BF0064056E /* GPT Voice Chat WatchKit Extension */,
 				3E7C4F7029E2825000546002 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,6 +134,8 @@
 			children = (
 				3E7C4F6F29E2825000546002 /* GPT Voice Chat.app */,
 				3E7C4F7529E2825000546002 /* GPT Voice Chat.app */,
+				3E87A58829E2C3BE0064056E /* GPT Voice Chat.app */,
+				3E87A59029E2C3BF0064056E /* GPT Voice Chat WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,6 +148,35 @@
 			path = macOS;
 			sourceTree = "<group>";
 		};
+		3E87A58929E2C3BE0064056E /* GPT Voice Chat */ = {
+			isa = PBXGroup;
+			children = (
+				3E87A58A29E2C3BF0064056E /* Assets.xcassets */,
+			);
+			path = "GPT Voice Chat";
+			sourceTree = "<group>";
+		};
+		3E87A59429E2C3BF0064056E /* GPT Voice Chat WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3E87A59529E2C3BF0064056E /* ContentView.swift */,
+				3E87A59729E2C3BF0064056E /* GPT_Voice_ChatApp.swift */,
+				3E87A59929E2C3BF0064056E /* ComplicationController.swift */,
+				3E87A59B29E2C3C00064056E /* Assets.xcassets */,
+				3E87A5A029E2C3C00064056E /* Info.plist */,
+				3E87A59D29E2C3C00064056E /* Preview Content */,
+			);
+			path = "GPT Voice Chat WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		3E87A59D29E2C3C00064056E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3E87A59E29E2C3C00064056E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -88,10 +187,12 @@
 				3E7C4F6B29E2825000546002 /* Sources */,
 				3E7C4F6C29E2825000546002 /* Frameworks */,
 				3E7C4F6D29E2825000546002 /* Resources */,
+				3E87A5AB29E2C3C00064056E /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3E87A5A229E2C3C00064056E /* PBXTargetDependency */,
 			);
 			name = "GPT Voice Chat (iOS)";
 			productName = "GPT Voice Chat (iOS)";
@@ -115,6 +216,40 @@
 			productReference = 3E7C4F7529E2825000546002 /* GPT Voice Chat.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3E87A58729E2C3BE0064056E /* GPT Voice Chat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E87A5A829E2C3C00064056E /* Build configuration list for PBXNativeTarget "GPT Voice Chat" */;
+			buildPhases = (
+				3E87A58629E2C3BE0064056E /* Resources */,
+				3E87A5A729E2C3C00064056E /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3E87A59329E2C3BF0064056E /* PBXTargetDependency */,
+			);
+			name = "GPT Voice Chat";
+			productName = "GPT Voice Chat";
+			productReference = 3E87A58829E2C3BE0064056E /* GPT Voice Chat.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		3E87A58F29E2C3BF0064056E /* GPT Voice Chat WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E87A5A429E2C3C00064056E /* Build configuration list for PBXNativeTarget "GPT Voice Chat WatchKit Extension" */;
+			buildPhases = (
+				3E87A58C29E2C3BF0064056E /* Sources */,
+				3E87A58D29E2C3BF0064056E /* Frameworks */,
+				3E87A58E29E2C3BF0064056E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GPT Voice Chat WatchKit Extension";
+			productName = "GPT Voice Chat WatchKit Extension";
+			productReference = 3E87A59029E2C3BF0064056E /* GPT Voice Chat WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -129,6 +264,12 @@
 						CreatedOnToolsVersion = 13.4.1;
 					};
 					3E7C4F7429E2825000546002 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					3E87A58729E2C3BE0064056E = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					3E87A58F29E2C3BF0064056E = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
 				};
@@ -148,6 +289,8 @@
 			targets = (
 				3E7C4F6E29E2825000546002 /* GPT Voice Chat (iOS) */,
 				3E7C4F7429E2825000546002 /* GPT Voice Chat (macOS) */,
+				3E87A58729E2C3BE0064056E /* GPT Voice Chat */,
+				3E87A58F29E2C3BF0064056E /* GPT Voice Chat WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -166,6 +309,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E7C4F7D29E2825000546002 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E87A58629E2C3BE0064056E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E87A58B29E2C3BF0064056E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E87A58E29E2C3BF0064056E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E87A59F29E2C3C00064056E /* Preview Assets.xcassets in Resources */,
+				3E87A59C29E2C3C00064056E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +350,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3E87A58C29E2C3BF0064056E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E87A59829E2C3BF0064056E /* GPT_Voice_ChatApp.swift in Sources */,
+				3E87A59629E2C3BF0064056E /* ContentView.swift in Sources */,
+				3E87A59A29E2C3BF0064056E /* ComplicationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3E87A59329E2C3BF0064056E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3E87A58F29E2C3BF0064056E /* GPT Voice Chat WatchKit Extension */;
+			targetProxy = 3E87A59229E2C3BF0064056E /* PBXContainerItemProxy */;
+		};
+		3E87A5A229E2C3C00064056E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3E87A58729E2C3BE0064056E /* GPT Voice Chat */;
+			targetProxy = 3E87A5A129E2C3C00064056E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3E7C4F7E29E2825000546002 /* Debug */ = {
@@ -419,6 +602,122 @@
 			};
 			name = Release;
 		};
+		3E87A5A529E2C3C00064056E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"GPT Voice Chat WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = 2DPRKN4D95;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "GPT Voice Chat WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "GPT Voice Chat WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "GPT-Voice-Chat.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Debug;
+		};
+		3E87A5A629E2C3C00064056E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"GPT Voice Chat WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = 2DPRKN4D95;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "GPT Voice Chat WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "GPT Voice Chat WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "GPT-Voice-Chat.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Release;
+		};
+		3E87A5A929E2C3C00064056E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2DPRKN4D95;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = GPT_Voice_Chat_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = "GPT Voice Chat";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "GPT-Voice-Chat";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "GPT-Voice-Chat.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Debug;
+		};
+		3E87A5AA29E2C3C00064056E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2DPRKN4D95;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = GPT_Voice_Chat_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = "GPT Voice Chat";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "GPT-Voice-Chat";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "GPT-Voice-Chat.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -445,6 +744,24 @@
 			buildConfigurations = (
 				3E7C4F8429E2825000546002 /* Debug */,
 				3E7C4F8529E2825000546002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E87A5A429E2C3C00064056E /* Build configuration list for PBXNativeTarget "GPT Voice Chat WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E87A5A529E2C3C00064056E /* Debug */,
+				3E87A5A629E2C3C00064056E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E87A5A829E2C3C00064056E /* Build configuration list for PBXNativeTarget "GPT Voice Chat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E87A5A929E2C3C00064056E /* Debug */,
+				3E87A5AA29E2C3C00064056E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
