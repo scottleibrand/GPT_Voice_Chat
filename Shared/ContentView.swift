@@ -74,6 +74,12 @@ struct ContentView: View {
                             scrollViewProxy.scrollTo(conversationHistory.count - 1, anchor: .bottom)
                         }
                     }
+                    // TODO: This is a hack to get the scroll view to scroll to the bottom when the real-time recognized text changes, but doesn't work when the user is speaking
+                    .onChange(of: realTimeRecognizedText) { _ in
+                        withAnimation {
+                            scrollViewProxy.scrollTo(conversationHistory.count - 1, anchor: .bottom)
+                        }
+                    }
                 }
             }
 
@@ -146,6 +152,7 @@ struct ContentView: View {
                     self.callOpenAIAPITurbo(model: "gpt-3.5-turbo", messages: self.conversationHistory) { response in
                         self.recognizedText = response
                         self.conversationHistory.append(["role": "assistant", "content": response])
+                        self.realTimeRecognizedText = ""
                         self.speakText(response)
                     }
                 }
