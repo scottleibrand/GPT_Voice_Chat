@@ -106,6 +106,7 @@ struct ContentView: View {
             requestSpeechRecognitionAuthorization()
             if isAPIKeyAvailable {
                 startRecognition()
+                isListening = true
             }
 
         }
@@ -164,6 +165,9 @@ struct ContentView: View {
                 }
             }
         })
+        DispatchQueue.main.async {
+            isListening = true
+        }
 
         let recordingFormat = inputNode.outputFormat(forBus: 0)
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, _) in
