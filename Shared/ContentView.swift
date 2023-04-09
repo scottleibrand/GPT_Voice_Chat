@@ -17,7 +17,7 @@ struct ContentView: View {
     @State private var speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer()
     @State private var request: SFSpeechAudioBufferRecognitionRequest = SFSpeechAudioBufferRecognitionRequest()
     @State private var recognitionTask: SFSpeechRecognitionTask?
-    @State private var openAIKey: String = ""
+    @AppStorage("openAIKey") private var openAIKey: String = ""
     @State private var showAlert: Bool = false
     @State private var alertMessage: String = ""
     @State private var synthesizer = AVSpeechSynthesizer()
@@ -28,7 +28,9 @@ struct ContentView: View {
         ["role": "system", "content": "You are a helpful assistant accessed via a voice interface from Apple devices. Your responses will be read aloud to the user. Please keep your responses brief. If you have a long response, ask the user if they want you to continue. If the user’s input doesn’t quite make sense, it might have been dictated incorrectly: feel free to guess what they really said."]
     ]
     @State private var realTimeRecognizedText: String = ""
-
+    private var isAPIKeyAvailable: Bool {
+        return !openAIKey.isEmpty
+    }
 
     var body: some View {
         VStack {
@@ -102,6 +104,10 @@ struct ContentView: View {
         }
         .onAppear {
             requestSpeechRecognitionAuthorization()
+            if isAPIKeyAvailable {
+                startRecognition()
+            }
+
         }
         .padding()
     }
