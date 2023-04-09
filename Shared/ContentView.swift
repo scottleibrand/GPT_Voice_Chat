@@ -21,6 +21,10 @@ struct ContentView: View {
     @State private var showAlert: Bool = false
     @State private var alertMessage: String = ""
     @State private var synthesizer = AVSpeechSynthesizer()
+    @State private var pauseTimer: Timer?
+    // Default the pause timer to 2 seconds
+    @State private var pauseTimerInterval: Double = 2.0
+
 
 
     var body: some View {
@@ -86,13 +90,19 @@ struct ContentView: View {
                     print("Recognized text: \(self.recognizedText)") // Debug print statement 1
 
                 }
+
+                // Reset the timer
+                self.pauseTimer?.invalidate()
+                //self.pauseTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
+                // Use the pauseTimerInterval variable instead of hardcoding the value
+                self.pauseTimer = Timer.scheduledTimer(withTimeInterval: self.pauseTimerInterval, repeats: false) { _ in
+                    print("Pause detected, calling OpenAI API...")
+
+//                print("result.isFinal: \(result.isFinal)") // Debug print statement 3
+//                print("error: \(error)") // Debug print statement 4
                 
-                // A pause in speech is detected or an error occurs
-                print("result.isFinal: \(result.isFinal)") // Debug print statement 3
-                print("error: \(error)") // Debug print statement 4
-                
-                if result.isFinal && (error == nil) {
-                    print("Finished recognition, calling OpenAI API...") // Debug print statement 2
+//                if result.isFinal && (error == nil) {
+//                    print("Finished recognition, calling OpenAI API...") // Debug print statement 2
                     self.stopRecognition()
                     self.isListening = false
 
