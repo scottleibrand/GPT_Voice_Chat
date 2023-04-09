@@ -80,8 +80,6 @@ struct ContentView: View {
             }
             return
         }
-        //request.shouldReportPartialResults = true
-        //request.taskHint = .dictation // Add this line to set the task hint to dictation
 
         recognitionTask = speechRecognizer.recognitionTask(with: request, resultHandler: { (result, error) in
             if let result = result {
@@ -91,18 +89,11 @@ struct ContentView: View {
 
                 }
 
-                // Reset the timer
+                // Reset the timer each time speech is detected
                 self.pauseTimer?.invalidate()
-                //self.pauseTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
-                // Use the pauseTimerInterval variable instead of hardcoding the value
                 self.pauseTimer = Timer.scheduledTimer(withTimeInterval: self.pauseTimerInterval, repeats: false) { _ in
                     print("Pause detected, calling OpenAI API...")
 
-//                print("result.isFinal: \(result.isFinal)") // Debug print statement 3
-//                print("error: \(error)") // Debug print statement 4
-                
-//                if result.isFinal && (error == nil) {
-//                    print("Finished recognition, calling OpenAI API...") // Debug print statement 2
                     self.stopRecognition()
                     self.isListening = false
 
