@@ -24,6 +24,9 @@ struct ContentView: View {
     @State private var pauseTimer: Timer?
     // Default the pause timer to 2 seconds
     @State private var pauseTimerInterval: Double = 2.0
+    @State private var conversationHistory: [[String: Any]] = [
+        ["role": "system", "content": "You are a helpful assistant accessed via a voice interface from Apple devices. Your responses will be read aloud to the user. Please keep your responses brief. If you have a long response, ask the user if they want you to continue. If the user’s input doesn’t quite make sense, it might have been dictated incorrectly: feel free to guess what they really said."]
+    ]
 
 
 
@@ -86,7 +89,10 @@ struct ContentView: View {
                 DispatchQueue.main.async {
                     self.recognizedText = result.bestTranscription.formattedString
                     print("Recognized text: \(self.recognizedText)") // Debug print statement 1
-
+                    // Stop the assistant's speech when user speech is detected
+                    if self.synthesizer.isSpeaking {
+                        self.synthesizer.stopSpeaking(at: .immediate)
+                    }
                 }
 
                 // Reset the timer each time speech is detected
@@ -97,13 +103,11 @@ struct ContentView: View {
                     self.stopRecognition()
                     self.isListening = false
 
-                    let messages: [[String: Any]] = [
-                        ["role": "system", "content": "You are a helpful assistant accessed via a voice interface from Apple devices. Your responses will be read aloud to the user. Please keep your responses brief. If you have a long response, ask the user if they want you to continue. If the user’s input doesn’t quite make sense, it might have been dictated incorrectly: feel free to guess what they really said."],
-                        ["role": "user", "content": self.recognizedText]
-                    ]
+                    self.conversationHistory.append(["role": "user", "content": self.recognizedText])
                     
-                    self.callOpenAIAPITurbo(model: "gpt-3.5-turbo", messages: messages) { response in
+                    self.callOpenAIAPITurbo(model: "gpt-3.5-turbo", messages: self.conversationHistory) { response in
                         self.recognizedText = response
+                        self.conversationHistory.append(["role": "assistant", "content": response])
                         self.speakText(response)
                     }
                 }
@@ -164,6 +168,8 @@ struct ContentView: View {
                     let content = message["content"] {
                         DispatchQueue.main.async {
                             completion(content)
+                            self.startRecognition() // Restart the recognition process after the assistant's response is spoken
+
                         }
                     }
                 } catch {
